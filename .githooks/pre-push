@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+if [ -d backend/tests ] && [ -f backend/app/search.py ]; then
+  echo '[pre-push] Executando testes de busca/importação...'
+  PYTHONPATH=backend python -m unittest discover -s backend/tests -v
+fi

@@ -1,138 +1,47 @@
-\# Federal Servant Search
+# Federal Servant Search
 
+Aplicação full-stack de pesquisa de registros públicos de servidores federais brasileiros.
 
+## Arquitetura
 
-Full-stack application for searching Brazilian Federal Executive public servant data.
+```text
+Browser --HTTP--> Nginx (React/Vite) --/api/--> Flask + Gunicorn --> PostgreSQL
+                                                           (pg_trgm)
+```
 
+## Funcionalidades de API disponíveis
 
+- Busca exata e por similaridade de nome (`pg_trgm`)
+- Filtros de cargo, órgão e UF, combináveis
+- Paginação e respostas JSON
+- Validação de parâmetros e SQL parametrizado
+- Healthcheck da API e conexão com banco
+- Importador CSV configurável para amostras de datasets oficiais
 
-\## Project Overview
+**Estado atual:** frontend do Yuri preservado (cadastro parcial, sem autenticação real; login pendente); tela de pesquisa e dados oficiais ainda não integrados. Este é um pacote de integração preliminar, ainda não validado em Docker real.
 
+## Desenvolvimento
 
+```powershell
+Copy-Item .env.example .env
+# Edite POSTGRES_PASSWORD em .env
+docker compose config
+docker compose up --build -d
+```
 
-This project provides a web interface for querying public servant records from the Brazilian Federal Executive branch.
+Frontend: `http://localhost:8080`; API: `http://localhost:8080/api/servidores` e `http://localhost:8080/api/health`.
 
+Consulte [docs/INTEGRATION_GUIDE.md](docs/INTEGRATION_GUIDE.md) para filtros, importação de dados, segurança, testes e hooks Git.
 
+## Estrutura
 
-The application is designed as a containerized full-stack system composed of:
+- `backend/`: API REST Flask + Gunicorn e testes Python.
+- `db/`: esquema PostgreSQL e importador CSV.
+- `frontend/`: React/Vite e configuração Nginx (código do Yuri preservado).
+- `docs/`: documentação de integração e acompanhamento.
+- `.github/workflows/ci.yml`: CI automático para PRs e pushes.
+- `.githooks/`: verificações e push automatizado com instalação voluntária.
 
+## Colaboração
 
-
-\- PostgreSQL database
-
-\- Flask REST API
-
-\- Gunicorn WSGI server
-
-\- Web frontend
-
-\- Docker Compose orchestration
-
-
-
-\## Main Features
-
-
-
-\- Exact name search
-
-\- Similar name search
-
-\- Position/profession search
-
-\- State (UF) search
-
-\- Institution/agency search
-
-\- Combined advanced filters
-
-\- Paginated results
-
-\- JSON API responses
-
-\- Concurrent request handling
-
-\- Input validation and error handling
-
-
-
-\## Architecture
-
-
-
-Frontend
-
-&#x20;  |
-
-&#x20;  | HTTP
-
-&#x20;  v
-
-Flask API + Gunicorn
-
-&#x20;  |
-
-&#x20;  v
-
-PostgreSQL
-
-
-
-\## Project Structure
-
-
-
-federal-servant-search/
-
-├── backend/
-
-├── frontend/
-
-├── db/
-
-├── docs/
-
-│   ├── architecture/
-
-│   ├── daily/
-
-│   ├── meetings/
-
-│   └── reports/
-
-├── docker-compose.yml
-
-├── .env.example
-
-├── .gitignore
-
-└── README.md
-
-
-
-\## Team
-
-
-
-The project is developed by a team of four members using an agile workflow and GitHub for version control and task tracking.
-
-
-
-\## Development
-
-
-
-The complete application will be started using:
-
-
-
-docker compose up --build
-
-
-
-\## Status
-
-
-
-Project initialization and architecture setup.
-
+Equipe de quatro integrantes. Desenvolvimento em branches com Pull Requests e histórico de commits real. Não há commits ou pushes produzidos por este pacote.

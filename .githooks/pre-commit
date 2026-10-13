@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# Bloqueio defensivo: arquivos de variáveis privadas não entram no histórico.
+if git diff --cached --name-only --diff-filter=ACMR | grep -E '(^|/)\.env($|\.)' | grep -v -E '(^|/)\.env\.example$'; then
+  echo '[pre-commit] ERRO: arquivo .env privado em staging. Use git restore --staged <arquivo>.' >&2
+  exit 1
+fi
+git diff --cached --check

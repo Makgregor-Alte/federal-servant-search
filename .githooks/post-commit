@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Opt-in via core.hooksPath, nunca cria commits. Exige commit explícito do autor.
+set -uo pipefail
+if [ "${GIT_AUTO_PUSH:-1}" = "0" ]; then exit 0; fi
+branch="$(git symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
+# Impede pushes acidentais na main e em branches de colegas.
+case "$branch" in
+  feat/*|fix/*|integration/*) ;;
+  *) echo "[post-commit] Branch $branch fora da lista permitida; push ignorado."; exit 0 ;;
+esac
+if ! git remote get-url origin >/dev/null 2>&1; then
+  echo '[post-commit] Remote origin indisponível; push ignorado.'
+  exit 0
+fi
+if git push -u origin "$branch"; then
+  echo "[post-commit] Branch $branch publicada."
+else
+  echo "[post-commit] Push falhou; commit preservado localmente." >&2
+fi
+exit 0
