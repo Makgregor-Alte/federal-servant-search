@@ -1,14 +1,7 @@
 import './styles/themes.css'
 import './styles/global.css'
-import { Cadastro } from './components/Cadastro/Cadastro'
+import { Busca } from './components/Busca/Busca'
 
 export function App() {
-
-  return (
-    <>
-      <Cadastro/>
-    </>
-  )
+  return <Busca />
 }
-
-
