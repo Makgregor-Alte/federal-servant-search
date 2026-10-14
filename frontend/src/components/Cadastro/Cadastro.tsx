@@ -1,10 +1,10 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { Link } from "react-router-dom";
 
 import './Cadastro.css'
 
 export function Cadastro() {
-  
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -22,15 +22,8 @@ export function Cadastro() {
     console.log({ nome, email, senha })
   };
 
-  return(
+  return (
     <div className="cadastro">
-      <header className="logo">
-        <span className="logo-line" />
-        <span>
-          *LOGO* <strong>COMPANY</strong>
-        </span>
-      </header>
-    
       <main className="card">
         <h1>Criar conta</h1>
         <p className="subtitle">Crie sua conta para continuar</p>
@@ -53,8 +46,8 @@ export function Cadastro() {
               placeholder=" "
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              />
-              <label htmlFor="email">E-mail</label>
+            />
+            <label htmlFor="email">E-mail</label>
           </div>
 
           <div className="field">
@@ -77,12 +70,12 @@ export function Cadastro() {
           <button type="submit" className="btn-primary">
             Criar conta
           </button>
-
         </form>
       </main>
 
+      <p className="signin">
+        Já tem uma conta? <Link to="/login">Entrar</Link>
+      </p>
     </div>
   )
 }
-
-

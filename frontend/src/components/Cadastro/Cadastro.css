@@ -7,26 +7,17 @@
   --accent: var(--button);
   --accent-text: var(--button-text);
 
-  
-  min-height: 100vh;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2.4rem 2.4rem 8rem;
 }
 
-.cadastro .logo {
-  align-self: flex-start;
-  position: relative;
-  padding-top: 0.8rem;
-  font-size: 1.5rem;
-  letter-spacing: 0.05rem;
-}
-
 .cadastro .card {
   width: 100%;
   max-width: 32rem;
-  margin-block: auto;
+  margin-top: auto;
   padding: 2.8rem 3rem 3rem;
   background: var(--card-bg);
   color: var(--card-text);
@@ -116,22 +107,18 @@
   outline-offset: 0.2rem;
 }
 
-
-/*
-.cadastro .logo-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3.4rem;
-  border-top: 0.1rem solid var(--headline);
+.cadastro .signin {
+  margin-top: 1.6rem;
+  margin-bottom: auto;
+  font-size: 1.2rem;
+  color: var(--paragraph);
 }
-*/
 
-/*
-.cadastro .logo strong {
-  font-weight: 700;
-  border-bottom: 0.1rem solid var(--headline);
-  padding-bottom: 0.2rem;
+.cadastro .signin a {
+  color: var(--accent);
+  text-decoration: none;
 }
-*/
 
+.cadastro .signin a:hover {
+  text-decoration: underline;
+}
