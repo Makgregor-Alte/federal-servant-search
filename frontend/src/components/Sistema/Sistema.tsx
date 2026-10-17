@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FormEvent } from "react";
+import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
 
 import './Sistema.css'
@@ -37,6 +37,8 @@ export function Sistema() {
   const totalPaginas = Math.ceil(resultados.length / porPagina);
   const visiveis = resultados.slice((pagina - 1) * porPagina, pagina * porPagina);
 
+  const detalhe = selecionada ?? (resultados.length === 1 ? resultados[0] : null);
+
   function trocarTipo(novo: 'cpf' | 'nome' | 'similar') {
     setTipo(novo);
     setBusca('');
@@ -56,13 +58,14 @@ export function Sistema() {
     if (tipo !== 'cpf') {
       const permitido = tipo === "nome" ? /^[\p{L}\s]+$/u : /^[\p{L}\s%]+$/u;
 
-    if (busca.trim()) {
+    if (!busca.trim()) {
       setErro('Informe o nome ou o padrão de busca.');
       return;
     }
 
     if (!permitido.test(busca.trim())) {
       setErro('Use apenas letras e espaços (e % na busca por similaridade).');
+      return;
     }
     
     }
@@ -77,7 +80,21 @@ export function Sistema() {
     setPagina(1)
     setSelecionada(null)
 
-    console.log({ tipo, busca, limite })
+    /*console.log({ tipo, busca, limite })*/
+
+    const dados: Pessoa[] = Array.from({ length: 25 }, (_, i) =>({
+      nome: `Pessoa Teste ${i + 1}`,
+      cpf: String(10000000000 + i),
+      sexo: i % 2 === 0 ? "F" : "M",
+      data_nascimento: "1990-05-17"
+    }));
+
+    if (busca.trim().toLowerCase() === "erro") {
+      setErro('Nenhum registro encontrado para essa busca.');
+      return;
+    }
+
+    setResultados(tipo === "cpf" ? dados.slice(0, 1) : dados.slice(0, Number(limite)));
 
   };
 
@@ -147,7 +164,7 @@ export function Sistema() {
 
           {tipo === 'similar' && (
             <p className="dica">
-              Use % no lugarl de qualquer trecho. Ex.: %MARIA%SILVA%, MARIA SILVA% ou MARIA%SILVA.
+              Use % no lugar de qualquer trecho. Ex.: %MARIA%SILVA%, MARIA SILVA% ou MARIA%SILVA.
             </p>
           )}
 
@@ -162,8 +179,84 @@ export function Sistema() {
           </button>
         </form>
 
-        
+        {detalhe && (
+          <section className="detalhe">
+            {resultados.length > 1 && (
+              <button
+                type="button"
+                className="voltar"
+                onClick={() => setSelecionada(null)}
+              >
+                Voltar para a lista
+              </button>
+            )}
+
+            <h2>{detalhe.nome}</h2>
+
+            <dl>
+              <div>
+                <dt>CPF</dt>
+                <dd>{mascararCpf(detalhe.cpf)}</dd>
+              </div>
+              <div>
+                <dt>Sexo</dt>
+                <dd>{detalhe.sexo}</dd>
+              </div>
+              <div>
+                <dt>Data de nascimento</dt>
+                <dd>{detalhe.data_nascimento.split("-").reverse().join("/")}</dd>
+              </div>
+            </dl>
+          </section>
+        )}
+
+        {!selecionada && resultados.length > 1 && (
+          <section className="lista">
+            <p className="contagem">{resultados.length} resultados encontrados</p>
+
+            <ul>
+              {visiveis.map((p) => (
+                <li key={p.cpf}>
+                  <button
+                    type="button"
+                    className="item"
+                    onClick={() => setSelecionada(p)}
+                  >
+                    <span>{p.nome}</span>
+                    <span className="cpf">{mascararCpf(p.cpf)}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+            <div className="paginacao">
+              <button
+                type="button"
+                disabled={pagina === 1}
+                onClick={() => setPagina(pagina - 1)}
+              >
+                Anterior
+              </button>
+
+              <span>
+                Página {pagina} de {totalPaginas}
+              </span>
+
+              <button
+                type="button"
+                disabled={pagina === totalPaginas}
+                onClick={() => setPagina(pagina + 1)}
+              >
+                Próxima
+              </button>
+            </div>
+          </section>
+        )}
       </main>
+
+      <p className="sair">
+        Quer trocar de conta? <Link to="/login">Sair</Link>
+      </p>
     </div>
   );
 }
