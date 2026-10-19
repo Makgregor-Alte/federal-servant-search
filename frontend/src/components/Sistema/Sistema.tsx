@@ -80,8 +80,9 @@ export function Sistema() {
     setPagina(1)
     setSelecionada(null)
 
-    /*console.log({ tipo, busca, limite })*/
+    console.log({ tipo, busca, limite })
 
+    /*       ##  TESTES DA PÁGINA  ##
     const dados: Pessoa[] = Array.from({ length: 25 }, (_, i) =>({
       nome: `Pessoa Teste ${i + 1}`,
       cpf: String(10000000000 + i),
@@ -95,7 +96,7 @@ export function Sistema() {
     }
 
     setResultados(tipo === "cpf" ? dados.slice(0, 1) : dados.slice(0, Number(limite)));
-
+    */
   };
 
   return (
