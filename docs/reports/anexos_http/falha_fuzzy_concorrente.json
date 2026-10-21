@@ -1,0 +1,63 @@
+{
+  "generated_at_utc": "2026-10-20T22:50:44+00:00",
+  "base_url": "http://127.0.0.1:8081",
+  "mode": "fuzzy",
+  "database_records": 1497448,
+  "status": "FAILED",
+  "summary": {
+    "fuzzy": {
+      "requests": 5,
+      "passed": 1,
+      "failed": 4,
+      "http_statuses": {
+        "504": 4,
+        "200": 1
+      },
+      "p50_ms": 6026.81,
+      "p95_ms": 6102.26,
+      "max_ms": 6120.33
+    }
+  },
+  "results": [
+    {
+      "label": "fuzzy",
+      "phase": "fuzzy",
+      "status": 504,
+      "duration_ms": 6026.81,
+      "passed": false,
+      "detail": "HTTP 504 inesperado"
+    },
+    {
+      "label": "fuzzy",
+      "phase": "fuzzy",
+      "status": 504,
+      "duration_ms": 6029.96,
+      "passed": false,
+      "detail": "HTTP 504 inesperado"
+    },
+    {
+      "label": "fuzzy",
+      "phase": "fuzzy",
+      "status": 504,
+      "duration_ms": 6025.17,
+      "passed": false,
+      "detail": "HTTP 504 inesperado"
+    },
+    {
+      "label": "fuzzy",
+      "phase": "fuzzy",
+      "status": 504,
+      "duration_ms": 6120.33,
+      "passed": false,
+      "detail": "HTTP 504 inesperado"
+    },
+    {
+      "label": "health apos carga fuzzy",
+      "phase": "fuzzy",
+      "status": 200,
+      "duration_ms": 40.41,
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

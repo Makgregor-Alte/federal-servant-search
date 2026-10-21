@@ -1,0 +1,71 @@
+name: federal-servant-search
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-federal_servants}
+      POSTGRES_USER: ${POSTGRES_USER:-app_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tsii-demo-local-only-change-before-deployment-2026}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/01_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ./db/02_model.sql:/docker-entrypoint-initdb.d/02_model.sql:ro
+      - ./db/03_integrity.sql:/docker-entrypoint-initdb.d/03_integrity.sql:ro
+      - ./db/04_indexes.sql:/docker-entrypoint-initdb.d/04_indexes.sql:ro
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          PGPASSWORD="$$POSTGRES_PASSWORD" psql -X -At -v ON_ERROR_STOP=1
+          -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"
+          -c "SELECT to_regclass('public.servidores') IS NOT NULL
+          AND to_regclass('public.lotes_importacao') IS NOT NULL
+          AND EXISTS (SELECT 1 FROM pg_extension WHERE extname = 'pg_trgm')
+          AND EXISTS (SELECT 1 FROM pg_constraint
+          WHERE conrelid = to_regclass('public.servidores')
+          AND conname = 'servidores_id_origem_preenchido_ck')"
+          | grep -qx t
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  backend:
+    build: ./backend
+    environment:
+      PGHOST: db
+      PGPORT: "5432"
+      PGDATABASE: ${POSTGRES_DB:-federal_servants}
+      PGUSER: ${POSTGRES_USER:-app_user}
+      PGPASSWORD: ${POSTGRES_PASSWORD:-tsii-demo-local-only-change-before-deployment-2026}
+      ALLOWED_ORIGINS: http://localhost:5173
+    ports:
+      - "127.0.0.1:${API_PORT:-5000}:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/api/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:${WEB_PORT:-8080}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 10s
+
+volumes:
+  postgres_data:
