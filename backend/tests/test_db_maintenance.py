@@ -22,11 +22,15 @@ class DbMaintenanceTests(unittest.TestCase):
             self.assertTrue((ROOT / "db" / migration).is_file())
 
     def test_backup_name_is_outside_project_by_default(self):
-        with patch.object(MAINT.uuid, "uuid4") as uuid4:
-            uuid4.return_value.hex = "abcdef0123456789"
-            path = MAINT._safe_backup_path()
-        self.assertEqual(path.parent, ROOT.parent / "federal_servant_backups")
-        self.assertTrue(path.name.endswith(".dump"))
+        # Usa um diretorio temporario gravavel, sem criar pastas na raiz do conteiner.
+        with tempfile.TemporaryDirectory() as folder:
+            project_root = Path(folder) / "projeto"
+            with patch.object(MAINT, "PROJECT_ROOT", project_root), \
+                    patch.object(MAINT.uuid, "uuid4") as uuid4:
+                uuid4.return_value.hex = "abcdef0123456789"
+                path = MAINT._safe_backup_path()
+            self.assertEqual(path.parent, Path(folder) / "federal_servant_backups")
+            self.assertTrue(path.name.endswith(".dump"))
 
     def test_backup_never_overwrites_existing_file(self):
         with tempfile.TemporaryDirectory() as folder:
