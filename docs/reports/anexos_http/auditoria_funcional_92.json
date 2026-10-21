@@ -1,0 +1,766 @@
+{
+  "generated_at_utc": "2026-10-20T23:23:17+00:00",
+  "base_url": "http://127.0.0.1:8081",
+  "mode": "functional",
+  "database_records": 1497448,
+  "context": {
+    "sample_filter": "unrestricted",
+    "sample": true,
+    "database_records": 1497448
+  },
+  "status": "PASSED",
+  "summary": {
+    "functional": {
+      "requests": 92,
+      "passed": 92,
+      "failed": 0,
+      "http_statuses": {
+        "200": 59,
+        "404": 2,
+        "400": 30,
+        "405": 1
+      },
+      "p50_ms": 85.06,
+      "p95_ms": 991.93,
+      "max_ms": 2561.0
+    }
+  },
+  "results": [
+    {
+      "label": "frontend HTML",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 425.83,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "health + PostgreSQL",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 41.2,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "sem filtros / paginacao padrao",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 1599.18,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "sem filtros / pagina 2",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 159.31,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "limite e pagina: 1",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 120.18,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "limite e pagina: 10",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 113.07,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "limite e pagina: 50",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 119.57,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "limite e pagina: 100",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 116.31,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "aliases pagina/limit",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 117.66,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "pagina 1 sem correspondencia",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 31.96,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "busca exata inexistente SQL injection inofensiva",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 30.16,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "nome exato existente",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 44.88,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "alias nome exato",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 29.16,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "nome exato sem diferenciar maiusculas",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 44.12,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "cargo / profession",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 712.82,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "alias position",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 72.95,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "orgao / agency",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 1623.74,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "alias agency",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 334.61,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF RS",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 194.17,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida AC",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 72.32,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida AL",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 144.15,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida AP",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 155.46,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida AM",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 158.94,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida BA",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 353.73,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida CE",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 272.97,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida DF",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 1100.52,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida ES",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 160.86,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida GO",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 205.4,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida MA",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 178.97,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida MG",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 557.21,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida MS",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 158.13,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida MT",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 164.17,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida PA",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 264.72,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida PB",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 289.93,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida PE",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 368.93,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida PI",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 122.59,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida PR",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 219.38,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida RJ",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 903.09,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida RN",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 180.12,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida RO",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 114.74,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida RR",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 117.88,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida SC",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 221.8,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida SE",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 85.53,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida SP",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 334.6,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF valida TO",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 78.1,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "combinacao cargo + UF",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 271.07,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "combinacao orgao + UF",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 234.96,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "combinacao nome + cargo + UF",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 29.54,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "consultar paginacao de nome exato",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 27.43,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "pagina inexistente: HTTP 404",
+      "phase": "functional",
+      "status": 404,
+      "duration_ms": 34.0,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "similaridade: Mariana (trigramas)",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 2561.0,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "similar=Mariana (alias)",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 2418.55,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "padrao Mariana% (prefixo)",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 189.78,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "padrao %maria (sufixo): caso caro",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 866.79,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "similar com % interpreta padrao",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 195.1,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "padrao NOME%SOBRENOME%",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 199.3,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "padrao NOME SOBRENOME%",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 84.59,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "padrao NOME%SOBRENOME",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 125.5,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "padrao %NOME%SOBRENOME%",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 93.17,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF invalida ZZ",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.85,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF invalida 1",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.53,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF invalida SQL injection",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 7.56,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "nome vazio",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 19.56,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "cargo vazio",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 5.7,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "orgao vazio",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.2,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF vazia",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 7.09,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "nome grande demais",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.86,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "cargo grande demais",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.8,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "modo inexistente",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 20.19,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "modo sem nome",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 21.01,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "padrao apenas wildcard",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 5.89,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "pagina zero",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 7.18,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "pagina negativa",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.43,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "pagina nao numerica",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 20.82,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "pagina decimal",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 5.67,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "pagina alem do teto",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 5.5,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "page_size zero",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.56,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "page_size 101",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 5.76,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "page_size decimal",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.72,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "page_size negativo",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 5.93,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "parametro desconhecido",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.08,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "alias name/nome conflitantes",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.3,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "alias cargo/position conflitantes",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 5.68,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "alias orgao/agency conflitantes",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.84,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "alias limit/page_size conflitantes",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.0,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "name/similar conflitantes",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.14,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "name repetido",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.09,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "UF repetida",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 6.59,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "controle no nome",
+      "phase": "functional",
+      "status": 400,
+      "duration_ms": 20.01,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "metodo POST rejeitado",
+      "phase": "functional",
+      "status": 405,
+      "duration_ms": 55.44,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "endpoint inexistente",
+      "phase": "functional",
+      "status": 404,
+      "duration_ms": 22.88,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "saude depois das consultas",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 35.43,
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

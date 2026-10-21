@@ -1,0 +1,47 @@
+{
+  "generated_at_utc": "2026-10-20T22:50:07+00:00",
+  "base_url": "http://127.0.0.1:8081",
+  "mode": "all",
+  "database_records": null,
+  "status": "FAILED",
+  "summary": {
+    "functional": {
+      "requests": 3,
+      "passed": 2,
+      "failed": 1,
+      "http_statuses": {
+        "200": 2,
+        "504": 1
+      },
+      "p50_ms": 40.3,
+      "p95_ms": 2756.86,
+      "max_ms": 3058.7
+    }
+  },
+  "results": [
+    {
+      "label": "frontend HTML",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 34.94,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "health + PostgreSQL",
+      "phase": "functional",
+      "status": 200,
+      "duration_ms": 40.3,
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "label": "sem filtros / paginacao padrao",
+      "phase": "functional",
+      "status": 504,
+      "duration_ms": 3058.7,
+      "passed": false,
+      "detail": "HTTP 504, esperado 200"
+    }
+  ]
+}

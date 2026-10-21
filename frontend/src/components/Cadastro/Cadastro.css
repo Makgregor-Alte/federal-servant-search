@@ -1,0 +1,133 @@
+.cadastro {
+  --card-bg: color-mix(in srgb, var(--headline) 6%, var(--background));
+  --card-border: color-mix(in srgb, var(--headline) 10%, transparent);
+  --card-text: var(--headline);
+  --card-muted: var(--paragraph);
+  --card-line: color-mix(in srgb, var(--paragraph) 60%, var(--background));
+  --accent: var(--button);
+  --accent-text: var(--button-text);
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.4rem 2.4rem 8rem;
+}
+
+.cadastro .card {
+  width: 100%;
+  max-width: 32rem;
+  margin-top: auto;
+  padding: 2.8rem 3rem 3rem;
+  background: var(--card-bg);
+  color: var(--card-text);
+  border: 0.1rem solid var(--card-border);
+  border-radius: 0.6rem;
+  box-shadow: 0 0.4rem 2.4rem rgba(0, 0, 0, 0.35);
+}
+
+.cadastro .card h1 {
+  text-align: center;
+  font-size: 3.4rem;
+  font-weight: 300;
+}
+
+.cadastro .subtitle {
+  margin: 0.4rem 0 2.8rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--card-muted);
+}
+
+.cadastro .field {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+.cadastro .field input {
+  width: 100%;
+  padding: 1.8rem 0 0.6rem;
+  border: none;
+  border-bottom: 0.1rem solid var(--card-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--card-text);
+  font: inherit;
+  font-size: 1.4rem;
+  outline: none;
+}
+
+.cadastro .field label {
+  position: absolute;
+  left: 0;
+  top: 1.4rem;
+  font-size: 1.4rem;
+  color: var(--card-muted);
+  pointer-events: none;
+  transition: all 0.15s ease;
+}
+
+.cadastro .field input:focus {
+  border-bottom: 0.2rem solid var(--accent);
+}
+
+.cadastro .field input:focus + label,
+.cadastro .field input:not(:placeholder-shown) + label {
+  top: 0.2rem;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.cadastro .erro {
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--error);
+}
+
+.cadastro .btn-primary {
+  display: block;
+  width: 100%;
+  margin-top: 1.4rem;
+  padding: 1rem 0;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.4rem;
+  background: var(--accent);
+  color: var(--accent-text);
+  font: inherit;
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.cadastro .btn-primary:hover {
+  filter: brightness(1.12);
+}
+.cadastro .btn-primary:focus-visible,
+.cadastro .social button:focus-visible {
+  outline: 0.2rem solid var(--accent);
+  outline-offset: 0.2rem;
+}
+
+.cadastro .signin {
+  margin-top: 1.6rem;
+  margin-bottom: auto;
+  font-size: 1.2rem;
+  color: var(--paragraph);
+}
+
+.cadastro .signin a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.cadastro .signin a:hover {
+  text-decoration: underline;
+}
+.cadastro .aviso-acesso {
+  margin: 0 0 2rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: var(--card-text);
+}

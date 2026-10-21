@@ -1,0 +1,21 @@
+.site-header {
+  padding: 2.4rem 2.4rem 0;
+}
+
+.site-header .logo {
+  display: inline-block;
+  padding-top: 0.8rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.05rem;
+  color: var(--headline);
+  text-decoration: none;
+}
+
+.site-header .logo strong {
+  font-weight: 700;
+}
+
+.site-header .logo:focus-visible {
+  outline: 0.2rem solid var(--button);
+  outline-offset: 0.4rem;
+}

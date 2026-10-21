@@ -43,3 +43,22 @@ build/
 # Local datasets
 data/raw/
 data/processed/
+# Segredos locais adicionais
+.env.local
+.env.*.local
+
+# Backups temporários de edição
+*.bak
+# Arquivos brutos locais utilizados na carga experimental
+db/data/
+db/*.csv
+db/*.txt
+
+# Backups e dumps locais
+federal_servant_backups/
+*.dump
+*.backup
+*.dump.partial
+
+# Test result reports
+test_reports/
